@@ -37,7 +37,6 @@ export const MobileMenuHeaderBtn = styled.button`
 export const MobileMenuContentDiv = styled.div`
   width: 100%;
   height: 20px;
-  background-color: red;
 `;
 
 export const MobileMenuUserDiv = styled.div`
@@ -49,7 +48,6 @@ export const MobileMenuUserDiv = styled.div`
 export const MobileMenuDropdownDiv = styled.div`
   width: 100%;
   height: 20px;
-  background-color: red;
 `;
 
 export const MobileMenuFooterDiv = styled.div`

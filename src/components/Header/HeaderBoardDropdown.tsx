@@ -1,7 +1,7 @@
 import * as M from '@/styles/Header/HeaderMainDropStyle';
 import Link from 'next/link';
 import Image from 'next/image';
-import {DoubleDropdown} from '@/components/Layout/Header/DoubleDropdown';
+import {DoubleDropdown} from '@/components/Header/DoubleDropdown';
 import {useState} from 'react';
 
 export const HeaderBoardDropdown = ({
