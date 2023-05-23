@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BaseLayout from '@/components/Layout';
+import Slider from '@/components/Slider';
 
 const StyledDiv = styled.div`
   background-color: #fff;
@@ -23,6 +24,7 @@ const StyledLink = styled.a`
 export default function Home() {
   return (
     <BaseLayout>
+      <Slider />
       <h1 style={{color: '#FF5500'}}>Welcome to MofMof Website!</h1>
       <Link href="/FattailGecko" legacyBehavior>
         <StyledLink>펫테일</StyledLink>

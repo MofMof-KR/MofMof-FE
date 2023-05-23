@@ -24,7 +24,8 @@
     "react-dom": "18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-redux": "^8.0.5",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.9",
+    "swiper": "^9.3.1"
   },
   "lint-staged": {
     "src/**/*.css": "npm run stylelint:fix",
