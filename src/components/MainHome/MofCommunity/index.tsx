@@ -33,7 +33,6 @@ export const MofCommunity: React.FC<IProps> = ({mofObjs}) => {
         />
       </S.LinkH2>
       <S.MofsWrapper>
-        {' '}
         {mofObjs?.map((mofobj: IMofObject) => (
           <CommCard mofobj={mofobj} key={mofobj?.name} />
         ))}

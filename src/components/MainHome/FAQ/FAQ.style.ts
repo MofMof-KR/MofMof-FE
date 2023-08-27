@@ -22,9 +22,9 @@ export const LinkH2 = styled(Link)`
 
 export const QuestionWrapper = styled.div`
   padding: 0.5rem 1rem;
-  border: 1px solid #e2e2e2;
+  border: 1px solid var(--gray-4);
   border-radius: 1rem;
-  height: 10.18rem;
+  height: 11rem;
   overflow: hidden;
 `;
 
@@ -43,7 +43,7 @@ export const QuestionTitle = styled.div`
 export const QuestionContent = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  color: var(--gray-7, #444);
+  color: var(--gray-7);
   gap: 0.5rem;
   line-height: 1.5rem;
 `;
@@ -52,7 +52,7 @@ export const Circle = styled.div`
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: #bebebe;
+  background: var(--gray-5);
   flex: 0 0 auto;
 `;
 
