@@ -1,7 +1,9 @@
 import {PolymorphicProps, PolymorphicRef} from '@/types/polymorphic';
-import React, {ReactNode, useId} from 'react';
+import React, {ChangeEvent, ReactNode, useId} from 'react';
 import styled from 'styled-components';
 import {A11yHidden} from '../A11yHidden';
+import {Button} from '../Button';
+import Image from 'next/image';
 
 type InputProps<T extends React.ElementType = 'input'> = PolymorphicProps<
   T,
@@ -38,7 +40,7 @@ export const Input: InputComponent = React.forwardRef(
 interface ISearchInput extends React.HTMLAttributes<HTMLInputElement> {
   type: string;
   value: string;
-  onChange: any;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   leftSide?: ReactNode;
   rightSide?: ReactNode;
 }
@@ -65,7 +67,14 @@ export const SearchInput: React.FC<ISearchInput> = ({
         onChange={onChange}
         {...restProps}
       />
-      {rightSide}
+      <SearchButton>
+        <Image
+          src={`/images/home/iconamoon_search.svg`}
+          width={25}
+          height={25}
+          alt={`search icon`}
+        />
+      </SearchButton>
     </StyledSearchInput>
   );
 };
@@ -80,15 +89,22 @@ const StyledSearchInput = styled.div`
   border-radius: 62.4375rem;
   background: var(--gray-3);
   margin-bottom: 1.12rem;
+  position: relative;
 `;
 
 const StyledInput = styled(Input)`
   height: 100%;
   background: transparent;
-  flex: 1 1 auto;
   border: 0;
   &:placeholder {
     color: var(--gray-6);
   }
   font-size: 1rem;
+`;
+
+const SearchButton = styled(Button)`
+  position: absolute;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
 `;
