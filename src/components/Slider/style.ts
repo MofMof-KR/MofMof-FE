@@ -5,9 +5,9 @@ export const StyledRoot = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: ${(props) => props.theme.spacing.xl};
-  height: 50vh;
+  height: 16rem;
   .swiper {
-    width: 90%;
+    width: 100%;
     height: 100%;
     border-radius: ${(props) => props.theme.borderRadius.xl};
     &-wrapper,

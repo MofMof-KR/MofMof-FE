@@ -1,36 +1,46 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import Button from '@/components/Button';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Container from '@/components/Container';
+import {DefaultHeader} from '@/components/Header';
 import BaseLayout from '@/components/Layout';
-import Slider from '@/components/Slider';
-import MainHome from '@/pages/MainHome';
-
-const StyledDiv = styled.div`
-  background-color: #fff;
-  max-width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledLink = styled.a`
-  color: #ff5500;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 24px;
-`;
+import Logo from '@/components/Logo';
+import {MainHomeContainer} from '@/containers/MainHomeContainer';
+import Image from 'next/image';
+import Footer from '@/components/Footer';
+import * as S from './Home.style';
 
 export default function Home() {
+  const rightSide = (
+    <>
+      <S.StyledButton>
+        <Image
+          src={'/images/home/Chat.svg'}
+          width={40}
+          height={40}
+          alt={'notification'}
+        />
+      </S.StyledButton>
+      <S.StyledButton>
+        <Image
+          src={'/images/home/nNotifications.svg'}
+          width={40}
+          height={40}
+          alt={'notification'}
+        />
+      </S.StyledButton>
+    </>
+  );
+  const header = (
+    <DefaultHeader
+      headText="mofmof"
+      isHeadShown={false}
+      leftSide={<Logo />}
+      rightSide={rightSide}
+    />
+  );
   return (
-    <BaseLayout>
-      <Slider />
-      <MainHome />
-      {/* <h1 style={{color: '#FF5500'}}>Welcome to MofMof Website!</h1>
-      <Link href="/FattailGecko" legacyBehavior>
-        <StyledLink>펫테일</StyledLink>
-      </Link> */}
+    <BaseLayout headerSide={header} isNavShown footerSide={<Footer />}>
+      <Container>
+        <MainHomeContainer />
+      </Container>
     </BaseLayout>
   );
 }
