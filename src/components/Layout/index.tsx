@@ -1,25 +1,26 @@
-import {HTMLAttributes} from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
-import Container from '../Container';
-import {StyledBaseLayout, StyledMain} from './style';
+import {HTMLAttributes, ReactNode} from 'react';
+import * as S from './Layout.style';
+import {Nav} from '@/components/Nav';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string;
+  headerSide?: ReactNode;
+  isNavShown: boolean;
+  footerSide?: ReactNode;
 }
 const BaseLayout: React.FC<IProps> = ({
-  className = '',
+  headerSide,
+  isNavShown,
+  footerSide,
   children,
   ...restProps
 }) => {
   return (
-    <StyledBaseLayout className={className} {...restProps}>
-      <Header />
-      <StyledMain>
-        <Container>{children}</Container>
-      </StyledMain>
-      <Footer />
-    </StyledBaseLayout>
+    <S.BaseLayout {...restProps}>
+      {headerSide}
+      <S.Main>{children}</S.Main>
+      {footerSide}
+      {isNavShown && <Nav />}
+    </S.BaseLayout>
   );
 };
 
