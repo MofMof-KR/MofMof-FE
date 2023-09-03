@@ -24,22 +24,22 @@ const Slider = () => {
   const items: itemsProps[] = [
     {
       id: 1,
-      item: '/svg/Swiper.png',
+      item: '/images/home/dummy_slider1.png',
       name: 'image01',
     },
     {
       id: 2,
-      item: '/svg/Gecko2.png',
+      item: '/images/home/dummy_slider1.png',
       name: 'image02',
     },
     {
       id: 3,
-      item: '/svg/Gecko3.png',
+      item: '/images/home/dummy_slider1.png',
       name: 'image03',
     },
     {
       id: 4,
-      item: '/svg/Gecko4.png',
+      item: '/images/home/dummy_slider1.png',
       name: 'image04',
     },
   ];

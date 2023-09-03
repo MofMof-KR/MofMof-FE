@@ -14,6 +14,14 @@ export const variables = `
     --brown: #988574;
     --blue: #6aaee6;
 
+    --gray-3: #F0F0F0;
+    --gray-4: #E2E2E2;
+    --gray-5: #BEBEBE;
+    --gray-6: #808080;
+    --gray-7: #444444;
+    --gray-8: #444444;
+    --gray-9: #444444
+
     --primary-color: #ff5500;
     --secondary-color: var(--green);
     --accent-color: var(--light-yellow);
