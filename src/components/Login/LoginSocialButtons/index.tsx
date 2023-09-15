@@ -1,10 +1,20 @@
 import * as S from './LoginSocialButtons.style';
 import Image from 'next/image';
 
-export const LoginSocialButtons = () => {
+interface LoginSocialButtonsProps {
+  getAuthorizationNaverCode: () => void;
+}
+export const LoginSocialButtons = ({
+  getAuthorizationNaverCode,
+}: LoginSocialButtonsProps) => {
   return (
     <S.Container>
-      <S.NaverButton type="button" tabIndex="0" role="button">
+      <S.NaverButton
+        type="button"
+        tabIndex="0"
+        role="button"
+        onClick={getAuthorizationNaverCode}
+      >
         <Image
           src="/images/login/naver.svg"
           width={20}
