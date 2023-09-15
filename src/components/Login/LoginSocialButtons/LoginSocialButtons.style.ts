@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import {Button} from '@/components/Button';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
   box-sizing: border-box;
+  padding: 0 1rem;
 `;
 
 export const NaverButton = styled(Button)`
