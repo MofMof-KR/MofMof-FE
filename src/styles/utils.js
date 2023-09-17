@@ -20,7 +20,7 @@ export const variables = `
     --gray-6: #808080;
     --gray-7: #444444;
     --gray-8: #444444;
-    --gray-9: #444444
+    --gray-9: #444444;
 
     --primary-color: #ff5500;
     --secondary-color: var(--green);
