@@ -1,8 +1,8 @@
 import {combineReducers} from '@reduxjs/toolkit';
-import themeSlice from './slices/themeSlice';
+import authorizationSlice from './slices/authorizationSlice';
 
 const rootReducer = combineReducers({
-  theme: themeSlice.reducer,
+  authorization: authorizationSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
