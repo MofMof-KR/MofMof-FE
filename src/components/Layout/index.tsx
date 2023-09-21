@@ -16,9 +16,9 @@ const BaseLayout: React.FC<IProps> = ({
 }) => {
   return (
     <S.BaseLayout {...restProps}>
-      {headerSide}
+      <S.Header>{headerSide}</S.Header>
       <S.Main>{children}</S.Main>
-      {footerSide}
+      {footerSide && <S.Footer>{footerSide}</S.Footer>}
       {isNavShown && <Nav />}
     </S.BaseLayout>
   );

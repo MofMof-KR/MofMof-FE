@@ -11,6 +11,8 @@ type InputProps<T extends React.ElementType = 'input'> = PolymorphicProps<
     className?: string;
     id?: string;
     type?: string;
+    onFocus?: () => void;
+    onBlur?: () => void;
   }
 >;
 
@@ -21,7 +23,15 @@ type InputComponent = <C extends React.ElementType = 'input'>(
 // eslint-disable-next-line react/display-name
 export const Input: InputComponent = React.forwardRef(
   <T extends React.ElementType = 'input'>(
-    {className = '', as, id, type = 'text', ...restProps}: InputProps<T>,
+    {
+      className = '',
+      as,
+      id,
+      type = 'text',
+      onFocus,
+      onBlur,
+      ...restProps
+    }: InputProps<T>,
     ref: PolymorphicRef<T>,
   ) => {
     const Element = as || 'input';
@@ -31,6 +41,8 @@ export const Input: InputComponent = React.forwardRef(
         id={id}
         type={type}
         ref={ref}
+        onFocus={onFocus}
+        onBlur={onBlur}
         {...restProps}
       />
     );

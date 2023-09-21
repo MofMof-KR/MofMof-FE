@@ -6,8 +6,17 @@ export const BaseLayout = styled.div`
   min-height: 100vh;
 `;
 
+export const Header = styled.header`
+  flex: 0 1 auto;
+`;
+
+export const Footer = styled.footer`
+  flex: 0 1 auto;
+`;
+
 export const Main = styled.main`
   flex: 1 1 auto;
+  display: flex;
 `;
 
 export const NavBottom = styled.div`

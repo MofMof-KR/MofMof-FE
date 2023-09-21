@@ -15,4 +15,10 @@ export class AuthenticationServiceImpl {
     this.storage.save(response.data?.responseValue);
     return response;
   }
+  async checkNickNameAvaliability(nickName: string) {
+    const response = await this.httpClient
+      .fetch()
+      .get(`/signup/nickname?nickName=${nickName}`);
+    return response;
+  }
 }
