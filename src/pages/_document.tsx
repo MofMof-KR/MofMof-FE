@@ -41,6 +41,11 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* Font Awesome Icons Library */}
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          />
           <DefaultHead />
         </Head>
         <body>
