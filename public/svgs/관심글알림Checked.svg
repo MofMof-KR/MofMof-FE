@@ -1,0 +1,17 @@
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="36"
+      height="24"
+      fill="none"
+      viewBox="0 0 36 24"
+    >
+      <rect
+        width="36"
+        height="22.154"
+        x="0"
+        y="0.923"
+        fill="#F50"
+        rx="11.077"
+      ></rect>
+      <circle cx="24.923" cy="12" r="8.308" fill="#fff"></circle>
+    </svg>
