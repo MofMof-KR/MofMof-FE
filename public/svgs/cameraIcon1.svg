@@ -1,0 +1,22 @@
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="none"
+      viewBox="0 0 32 32"
+    >
+      <path
+        stroke="#BEBEBE"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.333"
+        d="M6.668 9.333H8a2.667 2.667 0 002.667-2.667A1.333 1.333 0 0112 5.333h8a1.333 1.333 0 011.333 1.333 2.667 2.667 0 002.667 2.667h1.333A2.666 2.666 0 0128.001 12v12a2.667 2.667 0 01-2.667 2.666H6.668A2.667 2.667 0 014 24V12a2.667 2.667 0 012.667-2.667z"
+      ></path>
+      <path
+        stroke="#BEBEBE"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.333"
+        d="M12 17.334a4 4 0 108 0 4 4 0 00-8 0z"
+      ></path>
+    </svg>

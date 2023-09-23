@@ -4,6 +4,7 @@ import store from '@/store/store';
 import {GlobalStyle} from '@/styles/globalStyle';
 import {ThemeProvider} from 'styled-components';
 import theme from '@/styles/theme/theme';
+import 'react-quill/dist/quill.snow.css';
 
 export default function App({Component, pageProps}: AppProps) {
   return (
