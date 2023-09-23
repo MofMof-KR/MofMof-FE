@@ -1,5 +1,5 @@
 import {HTMLAttributes} from 'react';
-import StyledContainer from './style';
+import * as S from './Container.style';
 
 interface IProps extends HTMLAttributes<HTMLElement> {
   as?: React.ElementType;
@@ -12,9 +12,9 @@ const Container: React.FC<IProps> = ({
   ...restProps
 }) => {
   return (
-    <StyledContainer className={className} {...restProps}>
+    <S.StyledContainer className={className} {...restProps}>
       {children}
-    </StyledContainer>
+    </S.StyledContainer>
   );
 };
 
