@@ -4,11 +4,17 @@ import {SignUpSection} from '@/components/Layout/SignUpSection';
 
 interface SignUpEndProps {
   nickName: string;
+  finishSignUp: () => void;
 }
 
-export const SignUpEnd = ({nickName}: SignUpEndProps) => {
+export const SignUpEnd = ({nickName, finishSignUp}: SignUpEndProps) => {
   return (
-    <SignUpSection isValidated={true} completed={100} isNeedProgressBar={false}>
+    <SignUpSection
+      isValidated={true}
+      completed={100}
+      isNeedProgressBar={false}
+      finishSignUp={finishSignUp}
+    >
       <S.SignUpEndSection>
         <Image
           src="images/login/signupComplete.svg"

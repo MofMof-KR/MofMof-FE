@@ -6,6 +6,7 @@ import signUpStepSlice from './slices/auth/signupStepSlice';
 import loginNaverSlice from './slices/auth/loginNaverSlice';
 import checkNickNameAvailabilitySlice from './slices/auth/checkNickNameAvailabilitySlice';
 import portalSlice from './slices/portal/portalSlice';
+import signUpNaverSlice from './slices/auth/signUpNaver';
 
 const httpClient = new HttpClient(
   `${process.env.NEXT_PUBLIC_BACKEND_SERVER_BASE_URL}`,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   checkNickNameAvailability: checkNickNameAvailabilitySlice.reducer,
   signUpStep: signUpStepSlice.reducer,
   portal: portalSlice.reducer,
+  signUpNaver: signUpNaverSlice.reducer,
 });
 
 export {authorizationService};

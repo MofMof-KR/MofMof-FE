@@ -31,9 +31,10 @@ const OAuth = ({statusCode, responseValue}: OAuthServerSideProps) => {
   };
   useEffect(() => {
     if (statusCode === 200) {
-      const localStorage = new LocalStorage();
-      localStorage.save(responseValue);
-      router.push('/');
+      // 로그인 성공시가 아닌데요?
+      // const localStorage = new LocalStorage();
+      // localStorage.save(responseValue);
+      //router.push('/');
     }
   }, []);
   const leftSide = (
@@ -62,7 +63,7 @@ const OAuth = ({statusCode, responseValue}: OAuthServerSideProps) => {
       isNavShown={false}
     >
       <Container>
-        <SignUpContainer />
+        <SignUpContainer userInfo={responseValue} />
       </Container>
     </BaseLayout>
   );

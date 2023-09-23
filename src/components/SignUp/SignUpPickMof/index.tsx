@@ -26,6 +26,7 @@ export const SignUpPickMof = ({
       addtionText={'1가지 선택'}
       completed={completed}
       isValidated={!!likeGaeko}
+      isNeedProgressBar
     >
       <S.Ul>
         {mofObjs.map(({name, ko}) => (

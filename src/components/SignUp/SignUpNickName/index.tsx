@@ -30,6 +30,7 @@ export const SignUpNickName = ({
       isNeedAddition={false}
       completed={completed}
       isValidated={!!nickName && !!checkNickNameResult && !nickNameError}
+      isNeedProgressBar
     >
       <>
         <S.NickNameInput
