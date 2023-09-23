@@ -11,6 +11,7 @@ export class HttpClient {
       ...options,
       headers: {
         'Content-Type': 'application/json',
+        Accept: 'application/json',
         ...options.headers,
       },
     });

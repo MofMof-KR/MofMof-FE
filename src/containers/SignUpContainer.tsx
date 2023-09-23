@@ -7,14 +7,17 @@ import {
 } from '@/components/SignUp';
 import {SignUpStep} from '@/constants/SignUpStep';
 import {RootState} from '@/store/rootReducer';
-import {ChangeEvent, useState} from 'react';
+import {ChangeEvent, useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {
   checkNickName,
   initState,
 } from '@/store/slices/auth/checkNickNameAvailabilitySlice';
+import {UserResponse} from '@/types/login';
 import store from '@/store/store';
+import {signup} from '@/store/slices/auth/signUpNaver';
+import {useRouter} from 'next/router';
 
 const mofObjs = [
   {name: 'fat-tailed', ko: '펫테일'},
@@ -28,10 +31,15 @@ const mofObjs = [
   {name: 'skink', ko: '스킨크'},
 ];
 
+interface SignUpContainerProps {
+  userInfo: UserResponse;
+}
+
 const getCompletedPercent = (step: number) =>
   (step / (Object.keys(SignUpStep).length / 2 - 1)) * 100;
 
-const SignUpContainer = () => {
+const SignUpContainer = ({userInfo}: SignUpContainerProps) => {
+  const router = useRouter();
   const dispatch = useDispatch<typeof store.dispatch>();
   const step = useSelector((state: RootState) => {
     return state.signUpStep;
@@ -73,6 +81,34 @@ const SignUpContainer = () => {
   const pickLikeGaeko = (gaeko: string) => {
     setLikeGaeko(gaeko);
   };
+  const {
+    value: signUpResult,
+    isLoading: isSignUpLoading,
+    error: signUpError,
+  } = useSelector((state: RootState) => {
+    return state.signUpNaver;
+  });
+  const signUpRequest = {
+    ...userInfo,
+    address,
+    age: '',
+    email: email,
+    likeGaeko,
+    mobile: userInfo.phone,
+    nickname: nickName,
+  };
+
+  const finishSignUp = async () => {
+    await dispatch(signup(signUpRequest));
+  };
+
+  //TODO: convert to custom hook
+  useEffect(() => {
+    if (signUpResult && !signUpError) {
+      router.push('/');
+    }
+  }, [signUpResult]);
+
   return (
     <>
       {step === SignUpStep.EMAIL && (
@@ -111,7 +147,9 @@ const SignUpContainer = () => {
           pickLikeGaeko={pickLikeGaeko}
         />
       )}
-      {step === SignUpStep.END && <SignUpEnd nickName={'hihihi'} />}
+      {step === SignUpStep.END && (
+        <SignUpEnd nickName={nickName} finishSignUp={finishSignUp} />
+      )}
     </>
   );
 };

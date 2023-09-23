@@ -16,6 +16,7 @@ interface signUpSectionProps {
   addtionText?: string;
   completed: number;
   isValidated: boolean;
+  finishSignUp?: () => void;
 }
 
 export const SignUpSection = ({
@@ -26,6 +27,7 @@ export const SignUpSection = ({
   addtionText,
   completed,
   isValidated,
+  finishSignUp,
 }: signUpSectionProps) => {
   const signUpStep = useSelector((state: RootState) => {
     return state.signUpStep;
@@ -53,7 +55,10 @@ export const SignUpSection = ({
       </S.Header>
       <S.Main>{children}</S.Main>
       <S.ButtonWrapper>
-        <S.NextButton onClick={nextStep} disabled={!isValidated}>
+        <S.NextButton
+          onClick={signUpStep !== SignUpStep.END ? nextStep : finishSignUp}
+          disabled={!isValidated}
+        >
           {signUpStep !== SignUpStep.END ? '다음' : '시작하기'}
           {isValidated}
         </S.NextButton>

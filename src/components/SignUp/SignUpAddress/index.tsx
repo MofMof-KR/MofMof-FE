@@ -39,6 +39,7 @@ export const SignUpAddress = ({
       isNeedAddition={false}
       completed={completed}
       isValidated={!!address}
+      isNeedProgressBar
     >
       <>
         <S.AddressInput
