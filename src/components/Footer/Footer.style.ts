@@ -12,7 +12,19 @@ export const Footer = styled.footer`
   font-weight: 400;
   line-height: 140%;
   display: flex;
-  padding-bottom: 12rem;
+  padding-bottom: 7rem;
+  @media (min-width: 355px) {
+    padding-bottom: 8rem;
+  }
+  @media (min-width: 440px) {
+    padding-bottom: 9rem;
+  }
+  @media (min-width: 576px) {
+    padding-bottom: 12rem;
+  }
+  @media (min-width: 767px) {
+    padding-bottom: 1rem;
+  }
 `;
 
 export const SocialLinks = styled.div`
