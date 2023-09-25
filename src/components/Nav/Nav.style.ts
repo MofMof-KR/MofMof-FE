@@ -1,6 +1,12 @@
-import Link from 'next/link';
 import {motion} from 'framer-motion';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
+import {Button} from '../Button';
+
+const button = css`
+  border: none;
+  background: transparent;
+  cursor: pointer;
+`;
 
 export const Ul = styled.ul<{isOpen: number}>`
   display: flex;
@@ -25,9 +31,7 @@ export const Ul = styled.ul<{isOpen: number}>`
 `;
 
 export const QuickButton = styled(motion.button)`
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  ${button}
   position: absolute;
   overflow: hidden;
   margin-bottom: 2.25rem;
@@ -42,7 +46,8 @@ export const QuickButton = styled(motion.button)`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const NavButton = styled(Button)`
+  ${button}
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -82,9 +87,7 @@ export const HiddenUl = styled(motion.ul)`
 export const HiddenLi = styled(motion.li)``;
 
 export const HiddenButton = styled(motion.button)<{active: number}>`
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  ${button}
   margin-bottom: ${(props) => (props.active === 1 ? '1.25rem' : 0)};
   @media (min-width: 355px) {
     margin-bottom: ${(props) => (props.active === 1 ? '2rem' : 0)};

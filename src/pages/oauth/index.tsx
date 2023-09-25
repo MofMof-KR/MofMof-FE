@@ -31,7 +31,6 @@ const OAuth = ({statusCode, responseValue}: OAuthServerSideProps) => {
   };
   useEffect(() => {
     if (statusCode === 200) {
-      // 로그인 성공시가 아닌데요?
       // const localStorage = new LocalStorage();
       // localStorage.save(responseValue);
       //router.push('/');

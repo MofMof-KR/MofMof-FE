@@ -2,6 +2,7 @@ import React, {HTMLAttributes} from 'react';
 import * as S from './MofCommunity.style';
 import Image from 'next/image';
 import {CommCard} from '@/components/Card';
+import {useRouter} from 'next/router';
 
 const buttonVariants = {
   rest: {scale: 1},
@@ -21,6 +22,7 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const MofCommunity: React.FC<IProps> = ({mofObjs}) => {
+  const router = useRouter();
   return (
     <S.Section>
       <S.LinkH2 href={'#'}>
@@ -34,7 +36,13 @@ export const MofCommunity: React.FC<IProps> = ({mofObjs}) => {
       </S.LinkH2>
       <S.MofsWrapper>
         {mofObjs?.map((mofobj: IMofObject) => (
-          <CommCard mofobj={mofobj} key={mofobj?.name} />
+          <CommCard
+            mofobj={mofobj}
+            key={mofobj?.name}
+            goToNav={() => {
+              router.push(`/${mofobj?.name}`);
+            }}
+          />
         ))}
         <S.MofCard>
           <S.MofButton

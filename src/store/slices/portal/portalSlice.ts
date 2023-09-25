@@ -5,6 +5,7 @@ const portalSlice = createSlice({
   initialState: false,
   reducers: {
     toggle: (state) => {
+      console.log('state: ', state);
       return !state;
     },
   },

@@ -16,11 +16,13 @@ const buttonVariants = {
 
 interface ICardProps {
   mofobj: IMofObject;
+  goToNav: () => void;
 }
 
 interface CommBodyProps {
   children: ReactNode;
   mofobj: IMofObject;
+  goToNav: () => void;
 }
 
 interface CommTitleProps {
@@ -43,12 +45,14 @@ export const CommCard = ({...restProps}: ICardProps) => {
 };
 
 const CommBody = ({children, ...restProps}: CommBodyProps) => {
+  const {goToNav} = restProps;
   return (
     <S.Button
       variants={buttonVariants}
       initial="rest"
       whileHover="hover"
       whileTap="pressed"
+      onClick={goToNav}
       {...restProps}
     >
       {children}
