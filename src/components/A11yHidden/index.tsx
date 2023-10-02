@@ -4,7 +4,7 @@ import {ElementType, forwardRef} from 'react';
 type A11yHiddenProps<T extends ElementType = 'span'> = PolymorphicProps<
   T,
   {
-    children: React.ReactNode;
+    children?: React.ReactNode;
   }
 >;
 

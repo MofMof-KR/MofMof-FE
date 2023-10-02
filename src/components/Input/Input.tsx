@@ -11,6 +11,7 @@ type InputProps<T extends React.ElementType = 'input'> = PolymorphicProps<
     className?: string;
     id?: string;
     type?: string;
+    placeholder?: string;
     onFocus?: () => void;
     onBlur?: () => void;
   }
@@ -28,6 +29,7 @@ export const Input: InputComponent = React.forwardRef(
       as,
       id,
       type = 'text',
+      placeholder,
       onFocus,
       onBlur,
       ...restProps
@@ -43,6 +45,7 @@ export const Input: InputComponent = React.forwardRef(
         ref={ref}
         onFocus={onFocus}
         onBlur={onBlur}
+        placeholder={placeholder}
         {...restProps}
       />
     );

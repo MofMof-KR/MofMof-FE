@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-const useBlockScroll = () => {
+export const useBlockScroll = () => {
   useEffect(() => {
     const scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth;
@@ -12,5 +12,3 @@ const useBlockScroll = () => {
     };
   }, []);
 };
-
-export default useBlockScroll;

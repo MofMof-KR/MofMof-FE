@@ -1,4 +1,4 @@
-import useBlockScroll from '@/hooks/useBlockScroll';
+import {useBlockScroll} from '@/hooks';
 import * as S from './Category.style';
 import {DefaultHeader} from '../Header';
 import Image from 'next/image';

@@ -44,8 +44,7 @@ export const CommCard = ({...restProps}: ICardProps) => {
   );
 };
 
-const CommBody = ({children, ...restProps}: CommBodyProps) => {
-  const {goToNav} = restProps;
+const CommBody = ({children, goToNav, ...restProps}: CommBodyProps) => {
   return (
     <S.Button
       variants={buttonVariants}
