@@ -4,9 +4,11 @@ import {useMediaQuery} from '@/hooks';
 import {motion, useCycle} from 'framer-motion';
 import {useRouter} from 'next/router';
 import * as S from './Nav.style';
-import {useDispatch} from 'react-redux';
-import {toggle} from '@/store/slices/portal/portalSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {openPortal} from '@/store/slices/portal/portalSlice';
 import Portal from '../Portal';
+import {RootState} from '@/store/rootReducer';
+import {PortalChildren} from '@/constants/PortalChildren';
 import {Category} from '../Category';
 
 type IProps = HTMLAttributes<HTMLUListElement>;
@@ -75,6 +77,9 @@ const hiddenBackgroundVariants = {
 export const Nav: React.FC<IProps> = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [_, portalChild] = useSelector((state: RootState) => {
+    return state.portal;
+  });
   const [isOpen, toggleOpen] = useCycle(false, true);
   const isXsReached = useMediaQuery(355);
   const isSmReached = useMediaQuery(440);
@@ -100,10 +105,9 @@ export const Nav: React.FC<IProps> = () => {
     [isXsReached, isLandScapeMobileReached],
   );
   if (isTabletReached) return null;
-  const togglePortal = () => {
-    dispatch(toggle());
+  const toggleNaveMenu = () => {
+    dispatch(openPortal(PortalChildren.NAV_MENU));
   };
-
   return (
     <>
       <motion.div initial={false} animate={isOpen ? 'open' : 'closed'}>
@@ -159,7 +163,7 @@ export const Nav: React.FC<IProps> = () => {
         </S.QuickButton>
         {liObjs.map((item, idx) => (
           <S.Li key={item.content} active={liObjs.length >>> 1 === idx ? 1 : 0}>
-            <S.NavButton onClick={togglePortal}>
+            <S.NavButton onClick={toggleNaveMenu}>
               <Image
                 src={item.src}
                 width={calLinkButtonSize()}
@@ -171,9 +175,11 @@ export const Nav: React.FC<IProps> = () => {
           </S.Li>
         ))}
       </S.Ul>
-      <Portal>
-        <Category />
-      </Portal>
+      {portalChild !== PortalChildren.EDITOR ? (
+        <Portal>
+          <Category />
+        </Portal>
+      ) : null}
     </>
   );
 };

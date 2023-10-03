@@ -37,30 +37,30 @@ export const Toolbar = ({pickImage, save}: ToolbarProps) => {
               alt="image button"
             />
           </S.BoldButton>
-          <S.BoldButton type="button" className="ql-bold">
+          <S.SmileButton type="button" className="">
             <Image
               src={'/images/editor/tabler_mood-smile.svg'}
               width={32}
               height={32}
               alt="image button"
             />
-          </S.BoldButton>
-          <S.BoldButton type="button" className="ql-bold">
+          </S.SmileButton>
+          <S.AlignLeftButton type="button" className="ql-bold">
             <Image
               src={'/images/editor/tabler_align-left.svg'}
               width={32}
               height={32}
               alt="image button"
             />
-          </S.BoldButton>
-          <S.BoldButton type="button" className="ql-bold">
+          </S.AlignLeftButton>
+          <S.DotsButton type="button" className="ql-bold">
             <Image
               src={'/images/editor/tabler_dots.svg'}
               width={32}
               height={32}
               alt="image button"
             />
-          </S.BoldButton>
+          </S.DotsButton>
         </S.QuillButtons>
         <S.SaveButton type="submit" onClick={save}>
           저장

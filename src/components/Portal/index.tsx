@@ -10,7 +10,7 @@ interface PortalProps {
 
 const Portal = ({children}: PortalProps) => {
   const ref = useRef<Element | null>(null);
-  const mounted = useSelector((state: RootState) => {
+  const [mounted, _] = useSelector((state: RootState) => {
     return state.portal;
   });
   useEffect(() => {

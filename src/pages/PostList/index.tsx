@@ -9,6 +9,13 @@ import ListIndicator from './ListIndicator';
 import {PostListResponse} from '@/types/post';
 import BoardHeader from '@/components/Board/BoardHeader';
 import {API_BASE_URL} from '@/constants/constants';
+import {useDispatch, useSelector} from 'react-redux';
+import {openPortal} from '@/store/slices/portal/portalSlice';
+import Portal from '@/components/Portal';
+import {RootState} from '@/store/rootReducer';
+import {PortalChildren} from '@/constants/PortalChildren';
+import EditorContainer from '@/containers/EditorContainer';
+import {Editor} from '@/components/Editor';
 
 const tempinfo: PostListResponse = {
   responseValue: [
@@ -350,6 +357,13 @@ export default function PostListFree() {
     }
   };
 
+  const dispatch = useDispatch();
+  const [_, portalChild] = useSelector((state: RootState) => {
+    return state.portal;
+  });
+  const openEditor = () => {
+    dispatch(openPortal(PortalChildren.EDITOR));
+  };
   return (
     <BaseLayout isNavShown={true}>
       {isLoading || !postinfo ? (
@@ -358,6 +372,8 @@ export default function PostListFree() {
         <div style={{margin: '0 auto', width: '390px'}}>
           <BoardHeader title="펫테일 게코"></BoardHeader>
           <ListIndicator></ListIndicator>
+          <button onClick={openEditor}>QuillEditor</button>
+          {/*<button onClick={openEditor}>editor</button>*/}
           {/* <GridAndPagination
         cards={retPostInfo}
         perPage={postinfo.perPage}
@@ -370,6 +386,11 @@ export default function PostListFree() {
           ></GridAndInfiniteScroll>
         </div>
       )}
+      {portalChild !== PortalChildren.NAV_MENU ? (
+        <Portal>
+          <Editor />
+        </Portal>
+      ) : null}
     </BaseLayout>
   );
 }

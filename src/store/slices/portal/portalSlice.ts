@@ -1,15 +1,20 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {PortalChildren} from '@/constants/PortalChildren';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+
+const initialValue = [false, PortalChildren.OFF];
 
 const portalSlice = createSlice({
   name: 'portal',
-  initialState: false,
+  initialState: initialValue,
   reducers: {
-    toggle: (state) => {
-      console.log('state: ', state);
-      return !state;
+    openPortal: (_, actions: PayloadAction<PortalChildren>) => {
+      return [true, actions.payload];
+    },
+    closePortal: () => {
+      return initialValue;
     },
   },
 });
 
 export default portalSlice;
-export const {toggle} = portalSlice.actions;
+export const {openPortal, closePortal} = portalSlice.actions;

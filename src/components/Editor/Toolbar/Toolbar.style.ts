@@ -32,6 +32,21 @@ export const BoldButton = styled(Button)`
   ${button}
 `;
 
+export const SmileButton = styled(Button)`
+  ${button}
+  cursor: not-allowed;
+`;
+
+export const AlignLeftButton = styled(Button)`
+  ${button}
+  cursor: not-allowed;
+`;
+
+export const DotsButton = styled(Button)`
+  ${button}
+  cursor: not-allowed;
+`;
+
 export const QuillButtons = styled.div`
   display: flex;
   flex-flow: row nowrap;

@@ -2,7 +2,7 @@ import DaumPostCode from 'react-daum-postcode';
 import * as S from './DaumPost.style';
 import {Address} from 'react-daum-postcode';
 import {useDispatch} from 'react-redux';
-import {toggle} from '@/store/slices/portal/portalSlice';
+import {closePortal} from '@/store/slices/portal/portalSlice';
 
 interface DaumPostProps {
   changeAddress: (address: string) => void;
@@ -11,8 +11,8 @@ interface DaumPostProps {
 
 export const DaumPost = ({changeAddress, cancelFocusInput}: DaumPostProps) => {
   const dispatch = useDispatch();
-  const closePortal = () => {
-    dispatch(toggle());
+  const closeDaumPostCode = () => {
+    dispatch(closePortal());
     cancelFocusInput();
   };
   const completed = (data: Address) => {
@@ -34,7 +34,7 @@ export const DaumPost = ({changeAddress, cancelFocusInput}: DaumPostProps) => {
     <S.Wrapper>
       <DaumPostCode
         style={{height: '44rem'}}
-        onClose={closePortal}
+        onClose={closeDaumPostCode}
         onComplete={completed}
       />
       <S.CloseButton onClick={closePortal}>닫기</S.CloseButton>

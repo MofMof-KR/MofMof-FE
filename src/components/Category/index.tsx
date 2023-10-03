@@ -4,7 +4,7 @@ import {DefaultHeader} from '../Header';
 import Image from 'next/image';
 import BaseLayout from '../Layout';
 import {useDispatch} from 'react-redux';
-import {toggle} from '@/store/slices/portal/portalSlice';
+import {closePortal} from '@/store/slices/portal/portalSlice';
 import {useRouter} from 'next/router';
 
 const tabObjs = [
@@ -56,12 +56,12 @@ const liObjs = [
 export const Category = () => {
   useBlockScroll();
   const dispatch = useDispatch();
-  const togglePortal = () => {
-    dispatch(toggle());
+  const closeNavMenu = () => {
+    dispatch(closePortal());
   };
   const router = useRouter();
   const go2Login = () => {
-    togglePortal();
+    closeNavMenu();
     // TODO: not lgtm :(
     setTimeout(() => {
       router.push('/login');
@@ -69,7 +69,7 @@ export const Category = () => {
   };
 
   const leftSide = (
-    <S.GoBackButton onClick={togglePortal}>
+    <S.GoBackButton onClick={closeNavMenu}>
       <Image
         src={'/images/home/iconamoon_arrow-up-2.svg'}
         width={24}

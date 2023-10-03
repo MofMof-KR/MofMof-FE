@@ -4,8 +4,9 @@ import * as S from './SignUpAddress.style';
 import Portal from '@/components/Portal';
 import {useEffect, useRef, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {toggle} from '@/store/slices/portal/portalSlice';
+import {openPortal} from '@/store/slices/portal/portalSlice';
 import {DaumPost} from '@/components/DaumPostCode';
+import {PortalChildren} from '@/constants/PortalChildren';
 
 interface SignUpSectionProps {
   completed: number;
@@ -30,7 +31,7 @@ export const SignUpAddress = ({
   const dispatch = useDispatch();
   useEffect(() => {
     if (focused) {
-      dispatch(toggle());
+      dispatch(openPortal(PortalChildren.DAUM_POST_CODE));
     }
   }, [focused]);
   return (
