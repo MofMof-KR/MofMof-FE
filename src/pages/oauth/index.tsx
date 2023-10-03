@@ -1,4 +1,3 @@
-import {LocalStorage} from '@/storage/LocalStorage';
 import React, {useEffect} from 'react';
 import {useRouter} from 'next/router';
 import {useDispatch, useSelector} from 'react-redux';
@@ -11,6 +10,9 @@ import * as S from './OAuth.style';
 import SignUpContainer from '@/containers/SignUpContainer';
 import {decreaseStep} from '@/store/slices/auth/signupStepSlice';
 import {SignUpStep} from '@/constants/SignUpStep';
+import {LocalStorage} from '@/storage/LocalStorage';
+
+const localStorage = new LocalStorage();
 
 interface OAuthServerSideProps {
   statusCode: number;
@@ -31,9 +33,8 @@ const OAuth = ({statusCode, responseValue}: OAuthServerSideProps) => {
   };
   useEffect(() => {
     if (statusCode === 200) {
-      // const localStorage = new LocalStorage();
-      // localStorage.save(responseValue);
-      //router.push('/');
+      localStorage.save(responseValue);
+      router.push('/');
     }
   }, []);
   const leftSide = (

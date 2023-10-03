@@ -26,6 +26,7 @@ export class AuthenticationServiceImpl {
 
   async signup(userInfo: SignUpRequest) {
     const response = await this.httpClient.fetch().post('/signup', userInfo);
+    console.info('response: ', response);
     return response;
   }
 }

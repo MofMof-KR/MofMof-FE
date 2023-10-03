@@ -21,7 +21,7 @@ export const signup = createAsyncThunk<SignUpResponse, SignUpRequest>(
     try {
       const response = await authorizationService.signup(userInfo);
       if (response.status === 200) {
-        return response.data?.message;
+        return response.data?.responseValue;
       } else if (response.status === 209) {
         return '이미 회원';
       } else {

@@ -18,6 +18,7 @@ import {UserResponse} from '@/types/login';
 import store from '@/store/store';
 import {signup} from '@/store/slices/auth/signUpNaver';
 import {useRouter} from 'next/router';
+import {LocalStorage} from '@/storage/LocalStorage';
 
 const mofObjs = [
   {name: 'fat-tailed', ko: '펫테일'},
@@ -30,6 +31,8 @@ const mofObjs = [
   {name: 'bearded-dragon', ko: '비어디드래곤'},
   {name: 'skink', ko: '스킨크'},
 ];
+
+const localStorage = new LocalStorage();
 
 interface SignUpContainerProps {
   userInfo: UserResponse;
@@ -94,7 +97,7 @@ const SignUpContainer = ({userInfo}: SignUpContainerProps) => {
     age: '',
     email: email,
     likeGaeko,
-    mobile: userInfo.phone,
+    mobile: userInfo?.phone,
     nickname: nickName,
   };
 
@@ -105,6 +108,7 @@ const SignUpContainer = ({userInfo}: SignUpContainerProps) => {
   //TODO: convert to custom hook
   useEffect(() => {
     if (signUpResult && !signUpError) {
+      localStorage.save(String(signUpResult));
       router.push('/');
     }
   }, [signUpResult]);
