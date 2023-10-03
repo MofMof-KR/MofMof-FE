@@ -74,7 +74,7 @@ export const getServerSideProps = async ({query}: any) => {
   const category = query.code;
   const response = await authorizationService.login(category);
   const signInResponse = {
-    statusCode: response.status,
+    statusCode: response.data.statusCode,
     responseValue: response.data?.responseValue,
   };
   return {props: signInResponse};
